@@ -1,0 +1,218 @@
+---
+title: "Loading data to dataframes"
+author: "Jurre Hageman and Michiel Noback"
+date: "2020-05-20"
+---
+# Load data in dataframe
+
+The purpose of this excersise is simple: Load the data in a dataframe using the read.table function.
+Check if this is done in an appropriate manner by printing your dataframe.
+
+
+A test file named `test.txt` is located in the directory `test_dir`. In the next code chunk, we will open the test file using the `read.table` function and assign the contents to the `my_data` variable:
+
+
+```{r}
+my_dir <- "test_dir"
+my_file <- "test.txt"
+my_path <- paste0(my_dir, "/", my_file)
+my_data <- read.table(my_path)
+my_data
+``` 
+
+The loaded and the field seperator used was a space.
+my_data points to a dataframe object consisting of a sinle row and 5 columns in memory:
+
+
+```{r}
+class(my_data)
+dim(my_data)
+```
+
+# The files:
+The files in the `files`directory contains some (fictive) gene-array data. The dataset contains a selection of induced transcripts after some stimulus. The columns represent:
+- the mRNA entry
+- fold induction after some stimulus
+- the protein entry number
+- protein length in number of amino acids of the corresponding NP entry
+- the protein family the protein belongs to
+- the predicted cellular localization
+
+Whatever the contents of a file, you always need to address (some of) these questions:
+
+- Are there comment lines at the top?
+- Is there a header line with column names?
+- What is the column separator?
+- Are there quotes around character data?
+- How are missing values encoded?
+- How are numeric values encoded?
+- What is the type in each column?
+
+Also: read the help for the `read.table` function carefully.
+
+```{r}
+?read.table
+```
+
+Use the code block below to read the content of the files in the `files` directory in a dataframe object and assign it to the variable name `df`. There are 25 different files to practice your file loading skills.
+
+
+```{r}
+# Replace the NULL with the correct code:
+my_dir <- NULL
+my_file <- NULL
+my_path <- NULL
+my_data <- NULL
+my_data
+```
+
+
+## file01.txt
+
+```{r}
+#<YOUR CODE HERE>
+```
+
+## file02.txt
+
+```{r}
+#<YOUR CODE HERE>
+```
+
+## file03.txt
+
+```{r}
+#<YOUR CODE HERE>
+```
+
+## file04.txt
+
+```{r}
+#<YOUR CODE HERE>
+```
+
+## file05.txt
+
+```{r}
+#<YOUR CODE HERE>
+```
+
+## file06.txt
+
+```{r}
+#<YOUR CODE HERE>
+```
+
+## file07.txt
+
+```{r}
+#<YOUR CODE HERE>
+```
+
+## file08.txt
+
+```{r}
+#<YOUR CODE HERE>
+```
+
+## file09.txt
+
+```{r}
+#<YOUR CODE HERE>
+```
+
+## file10.txt
+
+```{r}
+#<YOUR CODE HERE>
+```
+
+## file11.txt
+
+```{r}
+#<YOUR CODE HERE>
+```
+
+## file12.txt
+
+```{r}
+#<YOUR CODE HERE>
+```
+
+## file13.txt
+
+```{r}
+#<YOUR CODE HERE>
+```
+
+## file14.txt
+
+```{r}
+#<YOUR CODE HERE>
+```
+
+## file15.txt
+
+```{r}
+#<YOUR CODE HERE>
+```
+
+## file16.txt
+
+```{r}
+#<YOUR CODE HERE>
+```
+
+## file17.txt
+
+```{r}
+#<YOUR CODE HERE>
+```
+
+## file18.txt
+
+```{r}
+#<YOUR CODE HERE>
+```
+
+## file19.txt
+
+```{r}
+#<YOUR CODE HERE>
+```
+
+## file20.txt
+
+```{r}
+#<YOUR CODE HERE>
+```
+
+## file21.txt
+
+```{r}
+#<YOUR CODE HERE>
+```
+
+## file22.txt
+
+```{r}
+#<YOUR CODE HERE>
+```
+
+## file23.txt
+
+```{r}
+#<YOUR CODE HERE>
+```
+
+## file24.txt
+
+```{r}
+#<YOUR CODE HERE>
+```
+
+## file25.txt
+
+```{r}
+#<YOUR CODE HERE>
+```
