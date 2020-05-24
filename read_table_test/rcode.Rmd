@@ -1,7 +1,7 @@
 ---
 title: "Loading data to dataframes"
 author: "Jurre Hageman and Michiel Noback"
-date: "2020-05-20"
+date: "2020-05-24"
 ---
 # Load data in dataframe
 
@@ -76,9 +76,9 @@ my_path <- paste0(my_dir, "/", my_file)
 my_data <- read.table(my_path,
 comment.char = "$",
 header = F,
-sep = ";",
+sep = "\t",
 dec = ".",
-na.strings = "-",
+na.strings = "no data",
 as.is = c(1, 3),
 )
 my_data
@@ -91,11 +91,11 @@ my_dir <- "files"
 my_file <- "file02.txt"
 my_path <- paste0(my_dir, "/", my_file)
 my_data <- read.table(my_path,
-comment.char = "#",
-header = F,
-sep = ";",
-dec = ".",
-na.strings = "-1",
+
+header = T,
+sep = "\t",
+dec = ",",
+na.strings = "-",
 as.is = c(1, 3),
 )
 my_data
@@ -108,11 +108,11 @@ my_dir <- "files"
 my_file <- "file03.txt"
 my_path <- paste0(my_dir, "/", my_file)
 my_data <- read.table(my_path,
-comment.char = "@",
-header = F,
-sep = "\t",
-dec = ",",
-na.strings = "ND",
+comment.char = "$",
+header = T,
+sep = ";",
+dec = ".",
+na.strings = "no data",
 as.is = c(1, 3),
 )
 my_data
@@ -126,10 +126,10 @@ my_file <- "file04.txt"
 my_path <- paste0(my_dir, "/", my_file)
 my_data <- read.table(my_path,
 comment.char = "$",
-header = T,
+header = F,
 sep = "\t",
 dec = ".",
-na.strings = "?",
+na.strings = "-",
 as.is = c(1, 3),
 )
 my_data
@@ -142,11 +142,11 @@ my_dir <- "files"
 my_file <- "file05.txt"
 my_path <- paste0(my_dir, "/", my_file)
 my_data <- read.table(my_path,
-comment.char = "@",
+comment.char = "$",
 header = T,
 sep = ",",
 dec = ".",
-na.strings = "-",
+na.strings = "no data",
 as.is = c(1, 3),
 )
 my_data
@@ -159,9 +159,9 @@ my_dir <- "files"
 my_file <- "file06.txt"
 my_path <- paste0(my_dir, "/", my_file)
 my_data <- read.table(my_path,
-comment.char = "$",
-header = F,
-sep = "\t",
+
+header = T,
+sep = ";",
 dec = ",",
 na.strings = "-1",
 as.is = c(1, 3),
@@ -176,10 +176,10 @@ my_dir <- "files"
 my_file <- "file07.txt"
 my_path <- paste0(my_dir, "/", my_file)
 my_data <- read.table(my_path,
-comment.char = "#",
+
 header = F,
-sep = ";",
-dec = ",",
+sep = ",",
+dec = ".",
 na.strings = "-1",
 as.is = c(1, 3),
 )
@@ -193,11 +193,11 @@ my_dir <- "files"
 my_file <- "file08.txt"
 my_path <- paste0(my_dir, "/", my_file)
 my_data <- read.table(my_path,
-comment.char = "#",
+comment.char = "$",
 header = F,
-sep = ",",
+sep = ";",
 dec = ".",
-na.strings = "?",
+na.strings = "no data",
 as.is = c(1, 3),
 )
 my_data
@@ -210,8 +210,8 @@ my_dir <- "files"
 my_file <- "file09.txt"
 my_path <- paste0(my_dir, "/", my_file)
 my_data <- read.table(my_path,
-comment.char = "#",
-header = F,
+comment.char = "@",
+header = T,
 sep = "\t",
 dec = ".",
 na.strings = "no data",
@@ -227,11 +227,11 @@ my_dir <- "files"
 my_file <- "file10.txt"
 my_path <- paste0(my_dir, "/", my_file)
 my_data <- read.table(my_path,
-comment.char = "@",
+comment.char = "$",
 header = T,
 sep = ";",
-dec = ",",
-na.strings = "no data",
+dec = ".",
+na.strings = "?",
 as.is = c(1, 3),
 )
 my_data
@@ -245,10 +245,10 @@ my_file <- "file11.txt"
 my_path <- paste0(my_dir, "/", my_file)
 my_data <- read.table(my_path,
 comment.char = "$",
-header = F,
-sep = ";",
-dec = ",",
-na.strings = "?",
+header = T,
+sep = ",",
+dec = ".",
+na.strings = "no data",
 as.is = c(1, 3),
 )
 my_data
@@ -261,11 +261,11 @@ my_dir <- "files"
 my_file <- "file12.txt"
 my_path <- paste0(my_dir, "/", my_file)
 my_data <- read.table(my_path,
-comment.char = "#",
+
 header = T,
-sep = ";",
+sep = ",",
 dec = ".",
-na.strings = "?",
+na.strings = "-1",
 as.is = c(1, 3),
 )
 my_data
@@ -278,11 +278,11 @@ my_dir <- "files"
 my_file <- "file13.txt"
 my_path <- paste0(my_dir, "/", my_file)
 my_data <- read.table(my_path,
-comment.char = "$",
+comment.char = "#",
 header = T,
-sep = ",",
-dec = ".",
-na.strings = "ND",
+sep = "\t",
+dec = ",",
+na.strings = "no data",
 as.is = c(1, 3),
 )
 my_data
@@ -295,11 +295,11 @@ my_dir <- "files"
 my_file <- "file14.txt"
 my_path <- paste0(my_dir, "/", my_file)
 my_data <- read.table(my_path,
-comment.char = "#",
+
 header = T,
-sep = ",",
-dec = ".",
-na.strings = "no data",
+sep = ";",
+dec = ",",
+na.strings = "-1",
 as.is = c(1, 3),
 )
 my_data
@@ -312,11 +312,11 @@ my_dir <- "files"
 my_file <- "file15.txt"
 my_path <- paste0(my_dir, "/", my_file)
 my_data <- read.table(my_path,
-comment.char = "@",
+comment.char = "#",
 header = T,
-sep = "\t",
+sep = ";",
 dec = ",",
-na.strings = "-",
+na.strings = "ND",
 as.is = c(1, 3),
 )
 my_data
@@ -329,11 +329,11 @@ my_dir <- "files"
 my_file <- "file16.txt"
 my_path <- paste0(my_dir, "/", my_file)
 my_data <- read.table(my_path,
-
+comment.char = "$",
 header = T,
-sep = ",",
-dec = ".",
-na.strings = "-",
+sep = ";",
+dec = ",",
+na.strings = "no data",
 as.is = c(1, 3),
 )
 my_data
@@ -350,7 +350,7 @@ comment.char = "$",
 header = T,
 sep = ",",
 dec = ".",
-na.strings = "ND",
+na.strings = "-",
 as.is = c(1, 3),
 )
 my_data
@@ -365,9 +365,9 @@ my_path <- paste0(my_dir, "/", my_file)
 my_data <- read.table(my_path,
 comment.char = "@",
 header = T,
-sep = "\t",
-dec = ",",
-na.strings = "-1",
+sep = ",",
+dec = ".",
+na.strings = "-",
 as.is = c(1, 3),
 )
 my_data
@@ -380,11 +380,11 @@ my_dir <- "files"
 my_file <- "file19.txt"
 my_path <- paste0(my_dir, "/", my_file)
 my_data <- read.table(my_path,
-comment.char = "#",
+comment.char = "$",
 header = T,
 sep = "\t",
 dec = ",",
-na.strings = "?",
+na.strings = "-1",
 as.is = c(1, 3),
 )
 my_data
@@ -399,7 +399,7 @@ my_path <- paste0(my_dir, "/", my_file)
 my_data <- read.table(my_path,
 comment.char = "$",
 header = T,
-sep = "\t",
+sep = ";",
 dec = ",",
 na.strings = "-",
 as.is = c(1, 3),
@@ -414,11 +414,11 @@ my_dir <- "files"
 my_file <- "file21.txt"
 my_path <- paste0(my_dir, "/", my_file)
 my_data <- read.table(my_path,
-comment.char = "@",
-header = T,
+comment.char = "#",
+header = F,
 sep = ",",
 dec = ".",
-na.strings = "ND",
+na.strings = "-",
 as.is = c(1, 3),
 )
 my_data
@@ -431,11 +431,11 @@ my_dir <- "files"
 my_file <- "file22.txt"
 my_path <- paste0(my_dir, "/", my_file)
 my_data <- read.table(my_path,
-comment.char = "#",
+comment.char = "$",
 header = T,
-sep = ";",
-dec = ",",
-na.strings = "ND",
+sep = ",",
+dec = ".",
+na.strings = "no data",
 as.is = c(1, 3),
 )
 my_data
@@ -448,11 +448,11 @@ my_dir <- "files"
 my_file <- "file23.txt"
 my_path <- paste0(my_dir, "/", my_file)
 my_data <- read.table(my_path,
-
+comment.char = "#",
 header = T,
-sep = ";",
-dec = ".",
-na.strings = "-",
+sep = "\t",
+dec = ",",
+na.strings = "?",
 as.is = c(1, 3),
 )
 my_data
@@ -467,8 +467,8 @@ my_path <- paste0(my_dir, "/", my_file)
 my_data <- read.table(my_path,
 comment.char = "$",
 header = F,
-sep = ",",
-dec = ".",
+sep = "\t",
+dec = ",",
 na.strings = "-1",
 as.is = c(1, 3),
 )
@@ -482,11 +482,11 @@ my_dir <- "files"
 my_file <- "file25.txt"
 my_path <- paste0(my_dir, "/", my_file)
 my_data <- read.table(my_path,
-comment.char = "$",
+comment.char = "#",
 header = T,
-sep = ",",
-dec = ".",
-na.strings = "-",
+sep = ";",
+dec = ",",
+na.strings = "-1",
 as.is = c(1, 3),
 )
 my_data
