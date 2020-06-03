@@ -17,7 +17,7 @@ It also generates a Rmd file with the assignment as well as an Rmd file with the
 
 ### 03 Cut function
 
-Excersise on using the cut function
+Excersise on using the cut function.  
 `array.ipynb` can be used to generate simulated gene array results.
 
 ### 04 Control flow and functions
