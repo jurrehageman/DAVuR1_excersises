@@ -1,6 +1,6 @@
 # Some Extra Excersises for the DAVuR1 course
 
-[DAVuR1](https://michielnoback.github.io/bincourses/davur.html)
+[Link to DAVuR1](https://michielnoback.github.io/bincourses/davur.html)
 
 ## Excersises
 
