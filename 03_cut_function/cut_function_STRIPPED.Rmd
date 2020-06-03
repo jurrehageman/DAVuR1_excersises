@@ -1,0 +1,112 @@
+---
+title: "cut_function"
+output: html_document
+---
+
+
+This exercise is about the `cut` function.
+
+# The cut function
+
+First read the help information about the `cut` function.
+
+
+```{r}
+?cut
+```
+
+# A small data set
+
+We will start to explore the `cut`function with a very small data set.
+
+Suppose we have a data set of gene array data. The vector below contains the fold induction of genome-wide mRNA expression after exposure of cells to dihydrotestosterone. 
+A value above 1 means an induction of gene expression, a value below 1 means a repression of gene expression. However, we know that the accuracy of the fold induction measurements is approximately plus or minus 0.1. This means that we can set the breakpoints as follows:
+- range 0 < 0.9 is a repression
+- range 0.9 < 1.1 is no net change
+- range >= 1.1 is an induction.
+
+
+```{r}
+induc <- c(0.10, 8.50, 0.95, 56.08, 0.90, 99.15, 1.00, 0.01, 0.65, 1.10, 2.34, 62.2)
+```
+
+## Q1
+
+Use the cut function to divide the data in a factor that tells you if there is an induction, no net change (`no_change`) or a repression. Make sure that you get an ordered factor. Do not yet bother with the `right =` argument. Assign the factor to the variable `inuct_type`. Print the content of induc_type.
+
+```{r}
+#<YOUR CODE HERE>
+```
+
+## Q2
+
+Create a data frame of the data and assign it to `induction`. Use fold_indcution and induction_type as column names. Print the data frame.
+
+```{r}
+#<YOUR CODE HERE>
+```
+
+## Q3 
+
+There are data points with values at the breakpoints. 
+As you can see the data above does not meet our defined values:
+- range 0 < 0.9 is a repression
+- range 0.9 < 1.1 is no change
+- range >= 1.1 is an induction.
+Use the `right = ` argument of the `cut` function to include or exclude the breakpoints in agreement with the above defined requirements. Overwrite the column with the new vector. Print the content of the data frame again.
+
+
+```{r}
+#<YOUR CODE HERE>
+```
+
+## Q4
+
+Create a well annotated plot of the induction type that shows the number of genes that are repressed, have no change or are induced upon dihydrotestosterone treatment. Bars should have a blue color. The bars should be named `repressed`, `no change`, `induced`.
+
+```{r}
+#<YOUR CODE HERE>
+```
+
+
+
+# A bigger data set 
+
+We will use the `cut` function on a slightly larger data set with fictive gene array data. The text file is located in the folder `files`.
+The name of the file is `file1.txt`.
+
+The columns are:
+- transcript_ID: NM_ entry number of the reference mRNA.
+- fold_induction: the same rules for repression, no change and induction are valid here.
+- family: the protein family that the gene encodes for.
+- location: the cellular localization of the gene product.
+
+## Q5
+
+Load the file and assign it to the variable `gene_array`.
+
+
+```{r}
+#<YOUR CODE HERE>
+```
+
+## Q6
+
+Add a column `induction_repression` to the data frame based on the fold_induction column.
+Use the `cut` function to accomplish this. The same rules apply for the breakpoints.
+
+```{r}
+#<YOUR CODE HERE>
+```
+
+
+## Q7
+
+Create a well annotated plot of the induction type that shows the number of genes that are repressed, have no change or are induced upon dihydrotestosterone treatment. Bars should be blue. The bars should be named `repressed`, `no change`, `induced`. Make sure that the bars are within the axis borders.
+
+```{r}
+#<YOUR CODE HERE>
+```
+
+
+**The end**

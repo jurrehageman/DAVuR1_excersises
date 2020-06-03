@@ -1,0 +1,216 @@
+---
+title: "Extra material to practice with dataframes and plots"
+author: "Jurre Hageman"
+date: "May 14, 2020"
+---
+
+All data used in this document are real lab-data obtained in the indicated courses.
+
+# Lowry BOVR Theme 6
+
+The Lowry method is a widely used spectroscopic method to quantify protein amounts in solutions.
+Here are some real Lowry results for the quantification of proteins:
+The calibration curve is made using BSA (bovine serum albumine) as a standard.
+The concentrations are in mg/ml:
+
+```{r}
+x <- c(0, 0, 0.025, 0.025, 0.075, 0.075, 0.125, 0.125)
+x
+```
+
+These are the obtained absorbtion values at 750 nm:
+
+```{r}
+y <- c(0.063, 0.033, 0.16, 0.181, 0.346, 0.352, 0.491, 0.488)
+y
+```
+
+## Q1
+
+Add the two vectors to a dataframe with the variable name `dilution`:
+Do not add column names yet.
+
+```{r}
+# Your code here
+
+
+```
+
+## Q2
+
+Add the appropriate column names: 
+- prot_conc
+- abs
+
+```{r}
+# Your code here
+
+```
+
+You forgot to include the last datapoints:
+
+```{r}
+x2 <- c(0.175,	0.175,	0.25,	0.25)
+y2 <- c(0.597,	0.595,	0.743,	0.742)
+```
+
+## Q3
+
+Generate a dataframe assigned to the variable `df_temp` from these datapoints. Now directly add the appropriate column names:
+
+```{r}
+# Your code here
+
+```
+
+## Q4
+
+Now add the second dataframe `df_temp` to `dilution` and assign it to the dataframe `dilution` (thus overwrite the variable name):
+
+```{r}
+# Your code here
+
+```
+
+## Q5
+
+Generate a line plot with the following settings:
+- Title: "Absorbance as a function of protein concentration"
+- Axis labels with clear indicated quantities and units.
+- Datapoints and connector lines should be visible and have a blue color.
+- Y-axis lower-limit should be 0, upper-limit should be 1.
+
+
+```{r}
+# Your code here
+
+```
+
+## Q6
+The dataframe now contains the duplo values in rows e.g.:
+
+concentration 1 measurement 1, OD value measurement 1
+concentration 1 measurement 2, OD value measurement 2
+concentration 2 measurement 1, OD value measurement 1
+concentration 2 measurement 2, OD value measurement 2
+
+We now will make a dataframe with the duplo values in seperate columns e.g.:
+
+concentration 1 measurement 1, OD value measurement 1, OD value measurement 2
+concentration 2 measurement 1, OD value measurement 1, OD value measurement 2
+
+Generate a new dataframe from the data with the duplo measurements side-by-side.
+- Fist generate a dataframe `even`using the even numbered rows.
+- Then generate a dataframe `odd`using the odd numbered rows.
+Hint: use subsetting with TRUE and FALSE and vector recycling.
+
+example:
+
+```{r}
+df <- data.frame(1:10, 11:20)
+df
+df[c(T, F), ]
+```
+
+
+Concatenate these dataframes and assign it to the variable `dilution_duplo`.
+
+```{r}
+# Your code here
+
+```
+
+## Q7
+
+The result will be a dataframe with two columns named `prot_conc`.
+Delete the second column named `prot_conc`.
+
+```{r}
+# Your code here
+
+```
+
+## Q8
+
+Rename the column names to `prot_conc`, `abs1` and `abs2`:
+
+```{r}
+# Your code here
+
+```
+
+## Q9
+
+Add a column `mean` and calculate the mean of the two abs measurements:
+For this simple example, calculate the mean yourself without using the mean function.
+The mean function will not work here but as a challenge you may want to use the function `rowMeans`.
+
+
+```{r}
+# Your code here
+
+```
+
+## Q10
+
+Generate a **bar** plot with the following settings:
+- Title: "Absorbance versus protein concentration"
+- Axis labels with clear indicated quantities and units.
+- Y-axis lower-limit should be 0, upper-limit should be 1. 
+- Plot the mean absorbance on the Y-axis.
+- Bars should have a green color.
+
+```{r}
+# Your code here
+
+```
+
+
+# HPLC BOVR Theme 7
+
+The data below are from the experiment "Thymol quantification in Thyme".
+This data are obtained by a reverse-phase HPLC method using thymol in a standard curve. Peak areas were calculated using an integrator device. Note that peak areas are dimensionless. The concentration thymol is in μg/ml.
+
+- co = concentration
+- pa = peak area
+
+```{r}
+co <- c(100, 100, 75, 75, 50, 50, 25, 25, 10, 10, 5, 5)
+pa <- c(1969017, 1858012, 1399762, 1449423, 963014, 832137, 467856, 562012, 200123, 145545, 94567, 64752)
+```
+
+## Q11
+
+Add the vectors to a dataframe named `hplc_data`. Use appropriate and clear column names.
+
+```{r}
+# Your code here
+
+```
+
+## Q12
+
+The concentrations are in descending order. Sort the dataframe so that the concentrations are in ascending order.
+
+```{r}
+# Your code here
+
+```
+
+## Q13
+
+Generate a scatter plot with the following settings:
+- Title: "Peak area as a function of thymol concentration"
+- Axis labels with clear indicated quantities and units.
+- Datapoints should be visible (no connector lines).
+- Datapoints should be blue
+- Add a red colored linear regression line with a lineweigth of 2.
+
+
+```{r}
+# Your code here
+
+```
+
+
+**THE END**

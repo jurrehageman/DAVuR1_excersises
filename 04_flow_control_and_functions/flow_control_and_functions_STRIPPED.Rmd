@@ -1,0 +1,147 @@
+---
+title: "flow control and functions"
+output: html_document
+author: "Jurre Hageman"
+---
+
+This exercise is about flow control and functions.
+Disclaimer: this exercise is for learning the basics of flow control and creating functions.
+We recommend that you use built in R functions later on in your code if available.
+Built in functions are tested and highly optimized.
+
+# Flow control
+
+Suppose we have some random numbers:
+
+
+```{r}
+set.seed(123) #this line will assure that everebody will get the same result
+my_nums <- sample(10000, 1000) #100 random numbers between 1 and 10000
+```
+
+## Q1
+
+Use a for loop and flow control to find the largest number in my_nums. 
+Do not use the `max` function. Don not use the `sort` function.
+Verify your result using the `max` function.
+
+```{r}
+#<YOUR CODE HERE>
+```
+
+
+## Q2
+
+Put the code in a function and assign it to the variable `my_max`. 
+The function should print `max value: x` with x as the max value.
+Test your function for the expected result.
+
+```{r}
+#<YOUR CODE HERE>
+```
+
+## Q3
+
+Rewrite your function that it returns the max value. Catch the returned value in a variable `max_my_nums`. Print `max_my_nums` to the screen
+
+```{r}
+#<YOUR CODE HERE>
+```
+
+
+## Q4
+
+Use flow control to count and report the number of even and odd numbers in `my_nums`.
+Do not make use of built in R functions.
+
+
+```{r}
+#<YOUR CODE HERE>
+```
+
+
+## Q5
+
+Put the above code in a function and name it `count_odd_even`.
+Print the number of evens and the number of odd values from within the function.
+Provide a user friendly message.
+
+```{r}
+#<YOUR CODE HERE>
+```
+
+## Q6
+
+Get the index in the vector of the highest  number.
+Put your code in a function. Name it `index_of_highest`.
+The function should return the index of the highest number.
+
+```{r}
+#<YOUR CODE HERE>
+```
+
+## Q7
+
+Write a function that uses the Pythagorean theorem to calculate the hypotenuse based on the height and base of a right-angled triangle. The function `calc_hypotenuse` should return the hypotenuse. If no height or base is given, use a default value of `1`.
+test your function with height = 3 and base = 4. Test your function if no base or height are given.
+
+```{r}
+#<YOUR CODE HERE>
+```
+
+## Q8
+
+Write a function that will use the quadratic equation (ABC formula) to solve an equation in the form ax^2 + bx + c = 0. Call the function `abc_solver`.
+Use flow control to test the following:
+- First calculate the discriminant (you should know the equation from your math lessons)
+- Test if the discriminant is negative. If so, return a message that tells the user that the equation can not be solved (it has complex roots).
+- Then test if the discriminant is positive. If so, there are two solutions for the equation. Return them in a vector.
+- Then test if the discriminant is 0. If so, there is one solution for the equation. Return the solution.
+
+Test your function for the following quadratic models:
+ax^1 + 2x + 3 (no solution)
+ax^3 + 7x + 4 (two intersections)
+ax^2 + 4x + 2 (1 intersection)
+
+You can verify your answers at:
+https://www.mathsisfun.com/quadratic-equation-solver.html
+
+
+```{r}
+#<YOUR CODE HERE>
+```
+
+
+The last two exercises are about the `ifelse` function.
+
+Suppose we have a data frame with some random values:
+
+
+```{r}
+set.seed(123)
+val1 <- 1:100
+val2 <- sample(1000, 100)
+df <- data.frame(x = val1, y = val2)
+head(df)
+```
+
+
+## Q9
+
+Add an column to the df named `even`. If the value in y is even the value in `even` will become `yes` and else `no`.
+
+```{r}
+#<YOUR CODE HERE>
+```
+
+## Q10
+
+Add a column named `larger_then_mean` to the data frame.
+Test for each value in y if it is larger than the mean. If so the value will be `yes` else `no`.
+
+```{r}
+#<YOUR CODE HERE>
+```
+
+
+**The end**

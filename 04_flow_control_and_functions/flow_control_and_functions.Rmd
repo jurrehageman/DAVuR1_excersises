@@ -1,0 +1,242 @@
+---
+title: "flow control and functions"
+output: html_document
+author: "Jurre Hageman"
+---
+
+This exercise is about flow control and functions.
+Disclaimer: this exercise is for learning the basics of flow control and creating functions.
+We recommend that you use built in R functions later on in your code if available.
+Built in functions are tested and highly optimized.
+
+# Flow control
+
+Suppose we have some random numbers:
+
+```{r}
+##KEEPIT##
+set.seed(123) #this line will assure that everebody will get the same result
+my_nums <- sample(10000, 1000) #100 random numbers between 1 and 10000
+```
+
+## Q1
+
+Use a for loop and flow control to find the largest number in my_nums. 
+Do not use the `max` function. Don not use the `sort` function.
+Verify your result using the `max` function.
+
+```{r}
+max_val <- 0
+for (i in my_nums) {
+  if (i > max_val) {
+    max_val = i
+  }
+}
+max_val
+max(my_nums)
+
+```
+
+
+## Q2
+
+Put the code in a function and assign it to the variable `my_max`. 
+The function should print `max value: x` with x as the max value.
+Test your function for the expected result.
+
+```{r}
+my_max <- function(x) {
+  max_val <- 0
+  for (i in my_nums) {
+    if (i > max_val) {
+      max_val = i
+    }
+  }
+  print(paste("max value:", max_val))
+}
+
+
+my_max(my_nums)
+```
+
+## Q3
+
+Rewrite your function that it returns the max value. Catch the returned value in a variable `max_my_nums`. Print `max_my_nums` to the screen
+
+```{r}
+my_max <- function(x) {
+  max_val <- 0
+  for (i in my_nums) {
+    if (i > max_val) {
+      max_val = i
+    }
+  }
+  return(max_val)
+}
+
+max_my_nums <- my_max(my_nums)
+max_my_nums
+```
+
+
+## Q4
+
+Use flow control to count and report the number of even and odd numbers in `my_nums`.
+Do not make use of built in R functions.
+
+
+```{r}
+evens <- 0
+odds <- 0
+for (i in my_nums) {
+  if (i %% 2 == 0) {
+    evens = evens + 1
+  }
+  else {
+    odds = odds + 1
+  }
+}
+evens
+odds
+```
+
+
+## Q5
+
+Put the above code in a function and name it `count_odd_even`.
+Print the number of evens and the number of odd values from within the function.
+Provide a user friendly message.
+
+```{r}
+count_odd_even <- function(x) {
+  evens <- 0
+  odds <- 0
+  for (i in my_nums) {
+    if (i %% 2 == 0) {
+      evens = evens + 1
+    }
+    else {
+      odds = odds + 1
+    }
+  }
+  print(paste("number of even numbers", evens))
+  print(paste("number of odd numbers", odds))
+}
+
+count_odd_even(my_nums)
+```
+
+## Q6
+
+Get the index in the vector of the highest  number.
+Put your code in a function. Name it `index_of_highest`.
+The function should return the index of the highest number.
+
+```{r}
+index_of_highest <- function(x) {
+  my_max <- 0
+  index_max <- 0
+  for (i in 1:length(x)) {
+    if (x[i] > my_max) {
+      my_max <- x[i]
+      index_max <- i
+    }
+  }
+  return(index_max)
+}
+
+index_of_highest(my_nums)
+```
+
+## Q7
+
+Write a function that uses the Pythagorean theorem to calculate the hypotenuse based on the height and base of a right-angled triangle. The function `calc_hypotenuse` should return the hypotenuse. If no height or base is given, use a default value of `1`.
+test your function with height = 3 and base = 4. Test your function if no base or height are given.
+
+```{r}
+calc_hypotenuse <- function(height = 1, base = 1) {
+  hypotenuse <- sqrt(height^2 + base^2)
+  return(hypotenuse)
+}
+
+calc_hypotenuse(height = 3, base = 4)
+calc_hypotenuse(height = 3)
+calc_hypotenuse(base = 4)
+```
+
+## Q8
+
+Write a function that will use the quadratic equation (ABC formula) to solve an equation in the form ax^2 + bx + c = 0. Call the function `abc_solver`.
+Use flow control to test the following:
+- First calculate the discriminant (you should know the equation from your math lessons)
+- Test if the discriminant is negative. If so, return a message that tells the user that the equation can not be solved (it has complex roots).
+- Then test if the discriminant is positive. If so, there are two solutions for the equation. Return them in a vector.
+- Then test if the discriminant is 0. If so, there is one solution for the equation. Return the solution.
+
+Test your function for the following quadratic models:
+ax^1 + 2x + 3 (no solution)
+ax^3 + 7x + 4 (two intersections)
+ax^2 + 4x + 2 (1 intersection)
+
+You can verify your answers at:
+https://www.mathsisfun.com/quadratic-equation-solver.html
+
+
+```{r}
+abc_solver <- function(a, b, c) {
+  discriminant <- (b^2) - (4*a*c)
+  if(discriminant < 0) {
+    return("This quadratic equation can not be solved. It has complex roots!")
+  }
+  else if(discriminant > 0) {
+    x1 <- ((-1 * b) + sqrt(discriminant)) / (2*a)
+    x2 <- ((-1 * b) - sqrt(discriminant)) / (2*a)
+    return(c(x1, x2))
+  }
+  else {
+    x <- (-1 * b) / (2*a)
+    return(x)
+  }
+}
+
+abc_solver(a = 1, b = 2, c = 3)
+abc_solver(a = 3, b = 7, c = 4)
+abc_solver(a = 2, b = 4, c = 2)
+```
+
+
+The last two exercises are about the `ifelse` function.
+
+Suppose we have a data frame with some random values:
+
+```{r}
+##KEEPIT##
+set.seed(123)
+val1 <- 1:100
+val2 <- sample(1000, 100)
+df <- data.frame(x = val1, y = val2)
+head(df)
+```
+
+
+## Q9
+
+Add an column to the df named `even`. If the value in y is even the value in `even` will become `yes` and else `no`.
+
+```{r}
+df$even <- ifelse(df$y %% 2 == 0, "yes", "no")
+head(df)
+```
+
+## Q10
+
+Add a column named `larger_then_mean` to the data frame.
+Test for each value in y if it is larger than the mean. If so the value will be `yes` else `no`.
+
+```{r}
+df$larger_then_mean <- ifelse(df$y > mean(df$y), "yes", "no")
+head(df)
+```
+
+
+**The end**

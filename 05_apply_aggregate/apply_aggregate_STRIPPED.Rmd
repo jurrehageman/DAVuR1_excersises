@@ -1,0 +1,226 @@
+---
+title: "Apply and aggregate"
+output: html_document
+author: "Jurre Hageman"
+---
+
+This exercise is about the `apply` and `aggregate` functions.
+
+
+# Apply
+
+There are several `apply` functions.
+We will cover:
+- apply
+- lapply
+- sapply
+
+Fist check the documentation of the various apply functions:
+
+
+```{r}
+?apply
+```
+
+
+
+```{r}
+?tapply
+```
+
+
+
+```{r}
+?sapply
+```
+
+Let's first create some vectors with some numbers:
+
+
+```{r}
+set.seed(123)
+
+x1 <- rnorm(n = 100, mean = 20, sd = 4)
+x2 <- rnorm(n = 100, mean = 40, sd = 4)
+x3 <- rnorm(n = 100, mean = 80, sd = 8)
+```
+
+
+
+## Q1
+
+Create a data frame using the above functions from the 3 vectors. Name the data frame `my_df`.
+Use the head function to print the first 10 observations.
+
+```{r}
+#<YOUR CODE HERE>
+```
+
+## Q2
+
+Calculate the mean for every column. First try to use `mean(my_df)`. What error do you get?
+Why would this give an error?
+
+```{r}
+#<YOUR CODE HERE>
+```
+
+## Q3
+
+Use all different apply functions and compare the results.
+Read the documentation for the correct arguments.
+
+regular apply
+```{r}
+#<YOUR CODE HERE>
+```
+
+
+lapply
+```{r}
+#<YOUR CODE HERE>
+```
+
+sapply
+```{r}
+#<YOUR CODE HERE>
+```
+
+## Q4
+
+Now calculate the mean of each row. What apply function would you use?
+
+```{r}
+#<YOUR CODE HERE>
+```
+
+## Q5
+
+Make a list of the vectors `x1`, `x2`, `x3`. Name the list `my_list`
+
+```{r}
+#<YOUR CODE HERE>
+```
+
+
+## Q6
+
+Use all the apply functions to calculate the mean of the items in the list.
+One of the apply functions will not work.
+Which one?
+Compare the output of the results.
+
+Regular apply
+```{r}
+#<YOUR CODE HERE>
+```
+
+lapply
+```{r}
+#<YOUR CODE HERE>
+```
+
+sapply
+```{r}
+#<YOUR CODE HERE>
+```
+
+## Q7
+
+Mean reduces data.
+We will now test the apply function on a non-reducing function.
+Use `lapply` to calculate the log with base 2 on all items in the list.
+Catch the result in a variable named `my_res_lapply`.
+Print the datatype of `my_res_lapply`.
+Print the first 10 items for each item in the list using a `for` loop.
+Compare the results.
+
+lapply
+```{r}
+#<YOUR CODE HERE>
+```
+
+## Q8
+
+Use `sapply` to calculate the log with base 2 on all items in the list.
+Catch the result in a variable named `my_res_sapply`.
+Print the datatype of `my_res_sapply`.
+Print the first 10 items using the `head` function.
+Compare the results.
+
+
+sapply
+```{r}
+#<YOUR CODE HERE>
+```
+
+
+# A bigger data set 
+
+We will use the `apply` and `aggregate` functions on a slightly larger data set with fictive gene array data. The text file is located in the folder `files`.
+The name of the file is `file1.txt`.
+
+The columns are:
+- transcript_ID: NM_ entry number of the reference mRNA.
+- fold_induction: the same rules for repression, no change and induction are valid here.
+- family: the protein family that the gene encodes for.
+- location: the cellular localization of the gene product.
+
+## Q9
+
+Load the file and assign it to the variable `gene_array`.
+
+
+```{r}
+#<YOUR CODE HERE>
+```
+
+## Q10
+
+Create an extra column `log2.fold.induction` with a base 2 log transformation of the `fold.induction` column. 
+
+```{r}
+#<YOUR CODE HERE>
+```
+
+## Q11
+
+Use `apply` to calculate the `mean` for each numeric/integer column in the `gene_array` data frame.
+Use the `na.rm` argument as extra argument in apply to deal with missing values correctly.
+
+```{r}
+#<YOUR CODE HERE>
+```
+
+## Q11
+
+Use `apply` to calculate the `sd` for each numeric column in the `gene_array` data frame.
+Use the `na.rm` argument as extra argument in apply to deal with missing values correctly.
+
+## Q12
+
+```{r}
+#<YOUR CODE HERE>
+```
+
+
+## Q13
+
+Use the `aggregate` function to investigate the mean log2 induction for each gene family.
+Note that aggregate will deal with `NA` values by default. 
+
+```{r}
+#<YOUR CODE HERE>
+```
+
+## Q14
+
+Use the `aggregate` function to investigate the mean log2 induction for each gene family per cellular compartment.
+
+
+```{r}
+#<YOUR CODE HERE>
+```
+
+
+**The end**
